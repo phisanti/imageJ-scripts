@@ -19,3 +19,5 @@ def align_slices(imp):
 		IJ.run(imp, "Translate...", "x=" + str(dx) + " y=" + str(dy) + " interpolation=None slice")
 	
 	return True
+
+align_slices(imp)

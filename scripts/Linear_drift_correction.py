@@ -1,7 +1,6 @@
 from ij.gui import NewImage
 from ij import IJ
 
-imp = IJ.getImage()
 def drift_correction(imp):
 	
     """Drift correction for images stack where the object displace linearly in one direction.
@@ -19,3 +18,6 @@ def drift_correction(imp):
 	imp.show()
 
 	return True
+
+imp = IJ.getImage()
+drift_correction(imp)

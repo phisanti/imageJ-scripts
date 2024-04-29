@@ -209,7 +209,7 @@ def process_image(imp, ref_channel = 3, outputFolder = outputFolder, tracking_se
             settings.detectorSettings = { 
                 'DO_SUBPIXEL_LOCALIZATION' : True,
                 'RADIUS' : tracking_settings['size'],
-                'TARGET_CHANNEL' : 3,
+                'TARGET_CHANNEL' : ref_channel,
                 'THRESHOLD' : tracking_settings['thr'],
                 'DO_MEDIAN_FILTERING' : True,
                 }  

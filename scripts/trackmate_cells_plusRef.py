@@ -22,8 +22,10 @@ from fiji.plugin.trackmate import TrackMate
 from fiji.plugin.trackmate import SelectionModel
 from fiji.plugin.trackmate import Logger
 from fiji.plugin.trackmate.detection import LogDetectorFactory
-from fiji.plugin.trackmate.tracking import LAPUtils
-from fiji.plugin.trackmate.tracking.sparselap import SparseLAPTrackerFactory
+#from fiji.plugin.trackmate.tracking import LAPUtils
+#from fiji.plugin.trackmate.tracking.sparselap import SparseLAPTrackerFactory
+from fiji.plugin.trackmate.tracking.jaqaman import SparseLAPTrackerFactory
+
 from fiji.plugin.trackmate.gui.displaysettings import DisplaySettingsIO
 import fiji.plugin.trackmate.visualization.hyperstack.HyperStackDisplayer as HyperStackDisplayer
 import fiji.plugin.trackmate.features.FeatureFilter as FeatureFilter
@@ -215,7 +217,8 @@ def process_image(imp, ref_channel = 3, outputFolder = outputFolder, tracking_se
             # Configure tracker - We want to allow merges and fusions
         
             settings.trackerFactory = SparseLAPTrackerFactory()
-            settings.trackerSettings = LAPUtils.getDefaultLAPSettingsMap() # almost good enough
+            #settings.trackerSettings = LAPUtils.getDefaultLAPSettingsMap() # almost good enough
+            settings.trackerSettings = settings.trackerFactory.getDefaultSettings() 
             settings.trackerSettings['LINKING_MAX_DISTANCE'] = tracking_settings['dist1']
             settings.trackerSettings['GAP_CLOSING_MAX_DISTANCE'] = tracking_settings['dist2']
             settings.trackerSettings['MAX_FRAME_GAP'] = nSlices/20
